@@ -29,7 +29,7 @@ namespace Task31
             {
                 for (int i = 0; i < array.Length; i++)
                 {
-                    Console.Write(array[i] + " ");
+                    Console.Write($"{array[i]} ");
                 }
                 Console.WriteLine(""); // Переход на новую строку
             }
