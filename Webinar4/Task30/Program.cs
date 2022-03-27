@@ -8,12 +8,12 @@ namespace Task30
     {
         public static void Main(string[] args)
         {
-            int[] a = new int[8];
+            int[] array = new int[8];
             Random rand = new Random();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                a[i] = rand.Next(0, 2);
-                Console.Write($"{a[i]}, ");
+                array[i] = rand.Next(0, 2);
+                Console.Write($"{array[i]}, ");
             }
             
             Console.WriteLine(" ");

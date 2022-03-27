@@ -28,8 +28,6 @@ namespace Work29
                 }
                 Console.Write($"{a[j]} ");
             }
-
-            
         }
     }
 }
