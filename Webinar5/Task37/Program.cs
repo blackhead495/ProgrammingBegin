@@ -9,7 +9,7 @@ namespace Task37
     {
         public static void Main(string[] args)
         {
-            const int num = 4;         // Количество элементов в массиве
+            const int num = 5;         // Количество элементов в массиве
             const int maxValue = 20;   // Максимальное значение случайного числа
             
             int[] array = new int[num];
