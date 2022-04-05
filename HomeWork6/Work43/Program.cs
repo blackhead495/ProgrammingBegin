@@ -1,37 +1,42 @@
 ﻿// Программа, которая находит точку пересечения двух прямых линий
 
-double[] KoordDot = new Double[2];
-double[] Koeff = new Double[4];
+double k1 = 0, k2 = 0, b1 = 0, b2 = 0;
 
-Koeff = SetLines();
-FindPoint(Koeff, KoordDot);
-Console.WriteLine($"Координаты точки пересечения прямых: X = {KoordDot[0]:F}, Y = {KoordDot[1]:F}");
+(k1, b1, k2, b2) = SetLines();
+FindPoint(k1, b1, k2, b2);
 
 //--------------------------------------------------------------
-double[] SetLines()
+(double K1,double B1, double K2, double B2) SetLines()
 {
-    double[] K = new Double[4];
     Console.WriteLine("Для двух прямых, заданных уравнениями вида y = kx + b, задайте их коэффициенты: ");
 
     Console.Write("К1: ");
-    K[0] = Convert.ToDouble(Console.ReadLine());
+    double K1 = Convert.ToDouble(Console.ReadLine());
 
     Console.Write("B1: ");
-    K[1] = Convert.ToDouble(Console.ReadLine());
+    double B1 = Convert.ToDouble(Console.ReadLine());
 
     Console.Write("К2: ");
-    K[2] = Convert.ToDouble(Console.ReadLine());
+    double K2 = Convert.ToDouble(Console.ReadLine());
 
     Console.Write("B2: ");
-    K[3] = Convert.ToDouble(Console.ReadLine());
+    double B2 = Convert.ToDouble(Console.ReadLine());
 
-    return K;
+    return (K1,B1,K2,B2);
 }
 
 //--------------------------------------------------------------
-void FindPoint(double[] Lines, double[] Dot)
+void FindPoint(double K1,double B1, double K2, double B2)
 {
-    Dot[0] = (Lines[3] - Lines[1]) / (Lines[0] - Lines[2]);
-    Dot[1] = Lines[0] * Dot[0] + Lines[1];
+    if (K1 == K2)
+    {
+        Console.WriteLine("Прямые параллелльны! ");
+    }
+    else
+    {
+        double X = (B2 - B1) / (K1 - K2);
+        double Y = K1 * X + B1;
+        Console.WriteLine($"Прямые пересекаются в точке с координатами Х = {X:F}, Y = {Y:F}");
+    }
 }
 //--------------------------------------------------------------

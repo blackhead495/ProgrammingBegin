@@ -117,7 +117,8 @@ string[,] SymbolArray =
 var lastDateTime = DateTime.Now;
 var curDateTime  = new DateTime();
 
-var Watch = "\n";
+//string Watch = new string() {"\n"};
+var Watch = String.Empty;
 
 while (true)        
 {
