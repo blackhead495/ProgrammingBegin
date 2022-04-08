@@ -10,6 +10,7 @@ int n = 7;
 int[,] array = new int[m, n];   // Создать массив заданных размеров
             
 Random rnd = new Random();
+
 FillArray(array);
 PrintArray(array);
 Console.WriteLine("---------------------------");
