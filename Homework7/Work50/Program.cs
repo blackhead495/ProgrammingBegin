@@ -47,8 +47,8 @@ void PositionRequest(int[,] arr)
     int row = Convert.ToInt32(Console.ReadLine());
     Console.Write("Введите номер столбца: ");
     int column = Convert.ToInt32(Console.ReadLine());
-    if ((row    < 0) || (row    > arr.GetLength(0))   ||
-        (column < 0) || (column > arr.GetLength(1)))
+    if ((row    < 0) || (row    >= arr.GetLength(0))   ||
+        (column < 0) || (column >= arr.GetLength(1)))
     {
         Console.WriteLine("Такого элемента матрицы не существует!");
     }
