@@ -3,11 +3,11 @@
 
 using System;
 
-int m = 8;                     // Задать размерность массива
+int m = 8;                     // Размерность массива
 int n = 6;
 
 int[,] array = new int[m, n];   // Создать массив заданных размеров
-int[] summ = new int[m];
+int[]  summ  = new int[m];      // Массив для суммы строк
             
 Random rnd = new Random();
 
@@ -16,7 +16,7 @@ summ = SummRows(array);
 Console.WriteLine("---------------------------");
 PrintArray(array, summ);
 Console.WriteLine("---------------------------");
-Console.WriteLine($"Строка номер {RowSmallestValue(summ)} имеет наименьшую сумму элементов");
+Console.WriteLine($"Строка с индексом {RowLeastValue(summ)} имеет наименьшую сумму элементов");
 
 
 //------------------------------------------------
@@ -26,7 +26,7 @@ void FillArray(int[,] arr)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-            arr[i,j] = rnd.Next(-20, 21);
+            arr[i, j] = rnd.Next(-20, 21);
         }
     }
 } 
@@ -47,15 +47,15 @@ int[] SummRows(int[,] arr)
     return sm;
 }
 //------------------------------------------------
-int RowSmallestValue(int[] arr)
+int RowLeastValue(int[] arr)
 {
     int numRow = 0;
-    int LowestVal = arr[0];
+    int LeastVal = arr[0];
     for (int i = 1; i < arr.Length; i++)
     {
-        if (arr[i] < LowestVal)
+        if (arr[i] < LeastVal)
         {
-            LowestVal = arr[i];
+            LeastVal = arr[i];
             numRow = i;
         }
     }
