@@ -3,15 +3,15 @@
 
 using System;
 
-int M = 5;                     // Размерность массива
-int N = 6;
-int P = 2;
+const int M = 2;                     // Размерность массива
+const int N = 3;
+const int P = 4;
 
 Random rnd = new Random();
 
-if (M*N*P >90)
+if (M*N*P > 90)
 {
-    Console.WriteLine("Матрица такого количества неповторяющихся чисел\n не может быть создана:");
+    Console.WriteLine("Матрица с таким количеством неповторяющихся чисел\n не может быть создана:");
     Console.WriteLine($"({M} * {N} * {P}) = {M*N*P} > 90");
 }
 else
@@ -28,10 +28,7 @@ void FillArray(int[,,] arr)
     int I = arr.GetLength(0);
     int J = arr.GetLength(1);
     int K = arr.GetLength(2);
-    Console.WriteLine("--------------------------------------------------");
-    Console.WriteLine($"Количество чисел в массиве ({I} * {J} * {K}) = {I*J*K} ");
-    Console.WriteLine("--------------------------------------------------");
-    
+
     int[] num = new int[100]; // Проверочный массив.
 
     for (int i = 0; i < I; i++)
@@ -54,11 +51,18 @@ void FillArray(int[,,] arr)
 //-------------------------------------------------
 void PrintArray(int[,,] arr)
 {
-    for (int i = 0;  i< arr.GetLength(0); i++)
+    int I = arr.GetLength(0);
+    int J = arr.GetLength(1);
+    int K = arr.GetLength(2);
+    Console.WriteLine("--------------------------------------------------");
+    Console.WriteLine($"Количество чисел в массиве ({I} * {J} * {K}) = {I*J*K} ");
+    Console.WriteLine("--------------------------------------------------");
+    
+    for (int i = 0;  i< I; i++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        for (int j = 0; j < J; j++)
         {
-            for (int k = 0; k < arr.GetLength(2); k++)
+            for (int k = 0; k < K; k++)
             {
                 Console.WriteLine($"array[{i}, {j}, {k}] = {arr[i,j,k]}");
             }

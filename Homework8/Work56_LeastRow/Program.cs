@@ -3,8 +3,8 @@
 
 using System;
 
-int m = 8;                     // Размерность массива
-int n = 6;
+const int m = 8;                     // Размерность массива
+const int n = 6;
 
 int[,] array = new int[m, n];   // Создать массив заданных размеров
 int[]  summ  = new int[m];      // Массив для суммы строк

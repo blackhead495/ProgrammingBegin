@@ -2,11 +2,11 @@
 
 using System;
 
-int m = 2;                     // Размерность 1 массива
-int n = 5;
+const int m = 2;                     // Размерность 1 массива
+const int n = 5;
 
-int p = 5;                     // Размерность 2 массива
-int r = 4;
+const int p = 5;                     // Размерность 2 массива
+const int r = 4;
 
 int[,] array1 = new int[m, n];   // Создать массивы заданных размеров
 int[,] array2 = new int[p, r];
