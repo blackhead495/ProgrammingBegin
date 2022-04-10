@@ -3,29 +3,32 @@
 
 Console.WriteLine("--- Задача 64 --------------------------------");
 
-
 Console.Write("Введите 1 число : ");
 int M = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите 2 число : ");
 int N = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("----------------------------------------------");
-if (M > N)
-    (M, N) = (N, M);
 
-int num = M;
+FindMultOf3(M, N);
 
-while (num % 3 != 0) // Определить следующее после М число
-    num++;
-
-if (num > N)
+void FindMultOf3(int m, int n)
 {
-    Console.WriteLine("Чисел кратных 3 нет");
-}
-else
-{
-    for (int i = num; i <= N; i+=3)
+    if (m > n)
+        (m, n) = (n, m);
+
+    while ((m % 3 != 0) || (m <= 0)) // Определить следующее натуральное после М число
+        m++;
+
+    if (m > n)
     {
-        Console.Write(i + " ");
+        Console.WriteLine("Чисел кратных 3 нет");
+    }
+    else
+    {
+        for (; m <= n; m += 3)
+        {
+            Console.Write(m + " ");
+        }
     }
 }
 
