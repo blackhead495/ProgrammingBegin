@@ -65,7 +65,6 @@ namespace Example14
                 {
                     for (int j = 0; j < image.GetLength(1); j++)
                     {
-                        //Console.Write($"{image[rows, columns]} ");
                         if (image[i,j] == 0) Console.Write(" ");
                         else Console.Write("+");
                     }
