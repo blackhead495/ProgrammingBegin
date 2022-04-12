@@ -4,59 +4,34 @@ Console.Write("Введите размерность массива : ");
 int n = Convert.ToInt32(Console.ReadLine());
 
 int[,] array = new int[n, n]; // Квадратный массив
-int kol = array.Length;       // Количество элементов матрицы
-int num = 1;
 
-// for (int i = 0; i < n; i++) // Верхняя сторона массива
-// {
-//     array[0, i] = num++;
-// }
-//
-// for (int i = 0; i < n; i++) // Правая сторона
-// {
-//     array[i, n-1] = num++ ;
-// }
-//
-// for (int i = n-1; i >= 0; i--) // Левая сторона
-// {
-//     array[n-1, i] = num++ ;
-// }
-
-FillImage(0,0);
+FillImage(array);
 PrintArray(array);
 
-void FillImage(int row, int col)
+//------------------------------------------------
+void FillImage(int[,] matrix)
 {
-    if (array[row,col] == 0 )
+    int row = 0, col = 0;                   // Текущие координаты
+    int numTurn = 0;                        // Номер поворота
+    int m = matrix.GetLength(1);    // Кол элементов в строке
+    int point = m;                          // Кол элементов до поворота
+    int dx = 1, dy = 0;                     // Приращения
+    
+    for (int i = 0; i < matrix.Length; i++)
     {
-        array[row, col] = num++;
-        if (col<2)
+        matrix[row, col] = i + 1;
+        if (--point == 0)          // Окончен? проход вдоль одной линии
         {
-            FillImage(row,col+1);   // Вправо
-        }
-        else if(row<2)
-        {
-            FillImage(row+1,col);   // Вниз
-        }
-        else if(col > 0)
-        {
-            FillImage(row,col-1);   // Влево
-        }
-        else if (row > 0)
-        {
-            FillImage(row-1,col);   // Вверх
-        }
-        else
-        {
-            return;
-        }
-    }
-    else
-    {
-        return;
+            point = m - (numTurn + 2) / 2;
+            numTurn++;
+            (dx, dy) = (-dy, dx);   // Поочередно сменяются: 0; +1
+                                    //                      +1;  0
+        }                           //                       0; -1
+                                    //                      -1;  0
+        col += dx;
+        row += dy;
     }
 }
-
 
 //------------------------------------------------
 void PrintArray(int[,] matrix)
@@ -70,4 +45,4 @@ void PrintArray(int[,] matrix)
         Console.WriteLine();
     }
 } 
-
+//------------------------------------------------
