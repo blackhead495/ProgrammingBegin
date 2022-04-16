@@ -13,7 +13,7 @@ Console.Write("Введите количество чисел Фибоначчи
 int num = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("----------------------------------------------");
 
-Fibo(A, B, num);
+Fibo(A, B, num); 
 
 void Fibo(int a, int b, int n)
 {
